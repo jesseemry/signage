@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Kiosk Mode App</title>
+  <title>Jesse's Kiosk Mode App</title>
 </head>
 <body>
-  Testing redirect 
+  <div id='content'>Testing redirect</div>
 </body>
 
 <Script>
@@ -17,6 +17,7 @@
   const pageName = readURLParameter('signGroup'); 
   const versionURL = 'https://script.google.com/macros/s/AKfycbzPELmfHUlhYyS8Y492r7-wd3F6u5dzKamz7tijTj89j41HNKvSD1BCM-rq6VrqMRpx/exec';
   const redirectURL = versionURL + '?signGroup=' + pageName;
+  document.getElementById('content').innerHTML = pageName;
 
   
   window.location.href = redirectURL; // Redirect to default page
