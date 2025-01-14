@@ -32,6 +32,17 @@ function sendPostRequest(url, data) {
     let params = getUrlParams();
     
     var signGroup = params['signGroup'];
+
+    if (signGroup == null){
+        chrome.management.getSelf(function(self){
+            chrome.storage.managed.get(null, function(items){
+                if (items && items.hasOwnProperty('signGroup')){
+                    signGroup = items.signGroup;
+                };
+            });
+        });
+    }
+
     var testing = params['testing'];
     var newDelay = 5000;
     console.log('in the load content function')
@@ -106,3 +117,4 @@ function sendPostRequest(url, data) {
         console.error(`Wake Lock request failed: ${err.name}, ${err.message}`);
       }
   }
+
