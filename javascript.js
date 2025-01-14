@@ -27,16 +27,19 @@ function sendPostRequest(url, data) {
  
  function loadContent(){
     // swapContent(['trying'])
-    const url = 'https://script.google.com/macros/s/AKfycbyA30O5CWhYW87OpJMtV2Nij0dMhbZdExTrZNjIf3OEQu079Z0twQ1vRtu5jFxWvFEjlQ/exec';
+    const url = 'https://script.google.com/macros/s/AKfycbz482_VgKXuEOwEjGpfhmxG5FLpCSsI_K8R6LBuPbbG4m5eJkPRee4DBA5sYbOCNfyitQ/exec';
 
     let params = getUrlParams();
     
     var signGroup = params['signGroup'];
+    var testing = params['testing'];
     var newDelay = 5000;
     console.log('in the load content function')
     console.log('signGroup:', signGroup);
+    console.log('testing:', testing);
     const dataToSend = { 
-        signGroup: signGroup
+        signGroup: signGroup,
+        testing: testing
       };
 
       sendPostRequest(url, dataToSend)
@@ -78,7 +81,7 @@ function sendPostRequest(url, data) {
     var newRefresh = content.nextRefresh
     console.warn(newRefresh)
     try {
-      document.getElementById('over').innerHTML = message + '<br>' + newRefresh;
+      document.getElementById('over').innerHTML = message;
       document.getElementById('content-frame').innerHTML = newFrame
       console.log('Content updated successfully.');
     } catch (error) {
