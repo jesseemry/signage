@@ -32,17 +32,18 @@ function sendPostRequest(url, data) {
     let params = getUrlParams();
     
     var signGroup = params['signGroup'];
-    var testing = params['testing'];
-   
 
-    
+    var testing = params['testing'];
+    var sheetURL = params['sheetURL'];
     var newDelay = 5000;
     console.log('in the load content function')
     console.log('signGroup:', signGroup);
     console.log('testing:', testing);
+    console.log('sheetURL:', sheetURL);
     const dataToSend = { 
         signGroup: signGroup,
-        testing: testing
+        testing: testing,
+        sheetURL: sheetURL
       };
 
       sendPostRequest(url, dataToSend)
