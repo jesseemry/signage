@@ -27,7 +27,7 @@ function sendPostRequest(url, data) {
  
  function loadContent(){
     // swapContent(['trying'])
-    const url = 'https://script.google.com/macros/s/AKfycbz482_VgKXuEOwEjGpfhmxG5FLpCSsI_K8R6LBuPbbG4m5eJkPRee4DBA5sYbOCNfyitQ/exec';
+    const url = 'https://script.google.com/macros/s/AKfycbxzViSw7NmByiSM2qfXwtn75-ucYqxTKzkMZloDAccae5TtjmiTzi3EwOdUFYNd4Am8Qw/exec';
 
     let params = getUrlParams();
     
