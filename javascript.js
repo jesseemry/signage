@@ -71,7 +71,7 @@ function sendPostRequest(url, data) {
     return params;
 
     }
-  
+  noSleep()
   loadContent()
 
   function swapContent(content){
@@ -88,4 +88,21 @@ function sendPostRequest(url, data) {
       console.log('Error updating content: ' + error);
       // Handle the error, e.g., display an error message to the user
     }
+  }
+  async function noSleep(){
+    try {
+        const wakeLock = await navigator.wakeLock.request('screen'); 
+        // 'screen' is the currently supported type
+        console.log('Wake Lock is active');
+        // Handle the wake lock release (e.g., when the user leaves the page)
+        wakeLock.onrelease = () => {
+          console.log('Wake lock released');
+        };
+      
+        // Optionally, release the wake lock manually
+        // await wakeLock.release(); 
+      
+      } catch (err) {
+        console.error(`Wake Lock request failed: ${err.name}, ${err.message}`);
+      }
   }
