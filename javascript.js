@@ -33,17 +33,7 @@ function sendPostRequest(url, data) {
     
     var signGroup = params['signGroup'];
     var testing = params['testing'];
-     if (testing){
-        console.log('testing is true - checking for chrome management');
-        chrome.management.getSelf(function(self){
-            chrome.storage.managed.get(null, function(items){
-                if (items && items.hasOwnProperty('signGroup')){
-                    console.log('made it into chrome storage');
-                    signGroup = items['signGroup'];
-                };
-            });
-        });
-    };
+   
 
     
     var newDelay = 5000;
