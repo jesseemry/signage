@@ -38,6 +38,7 @@ function sendPostRequest(url, data) {
         chrome.management.getSelf(function(self){
             chrome.storage.managed.get(null, function(items){
                 if (items && items.hasOwnProperty('signGroup')){
+                    console.log('made it into chrome storage');
                     signGroup = items['signGroup'];
                 };
             });
