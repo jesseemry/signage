@@ -1,8 +1,9 @@
-<style>
-    body {
-      margin: 0;
-      /* Remove default margin */
-    }
+
+html, body {
+    border: 0px;
+    margin: 0px;
+    padding: 0px;
+}
 
     iframe {
       display: block;
@@ -13,8 +14,11 @@
       /* Set width to 100% of the viewport width */
       border: none;
       /* Remove default border */
-      background: lightyellow;
+      background: rgb(34, 111, 218);
       /* Just for styling */
+      padding:0px;
+        margin:0px;
+        overflow: hidden;
     }
     #over { font-size:5em; 
       position:absolute; 
@@ -23,4 +27,4 @@
       z-index:2;
       text-shadow: 2px 2px 5px black;
       color:white }
-  </style>
+  
