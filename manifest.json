@@ -1,3 +1,9 @@
-"permissions": [
+{
+    "manifest_version": 3,
+    "name": "JGE Signage",
+    "version": "1.0",
+    "permissions": [
     "chrome_management"
 ]
+
+}
