@@ -3,10 +3,10 @@ self.addEventListener('install', (event) => {
         caches.open('signageApp')
         .then(cache => {
             return cache.addAll([
-                '/',
                 '/index.html',
                 '/javascript.js',
                 '/Stylesheet.css'
+            ]);
         });
     );
 });
