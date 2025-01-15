@@ -3,7 +3,7 @@ self.addEventListener('install', (event) => {
         caches.open('signageApp')
         .then(cache => {
             return cache.addAll([
-                '/',
+                '/signage/',
                 'index.html',
                 'javascript.js',
                 'Stylesheet.css'
