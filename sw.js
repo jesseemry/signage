@@ -1,4 +1,4 @@
-const swVersion = '1.0';
+const swVersion = '1.0.01';
 console.log('sw v#',swVersion);
 self.addEventListener('install', (event) => {
     event.waitUntil(
@@ -30,15 +30,15 @@ self.addEventListener('install', (event) => {
 //     });
 //     })();
 
-self.addEventListener('online', () => {
-    console.log('online')
-    loadContent()
-    // clients.matchAll().then(clients => {
-    //     clients.forEach(client => {
-    //         client.postMessage('refresh');
-    //     });
-    // });
-});
+// self.addEventListener('online', () => {
+//     console.log('online')
+//     loadContent()
+//     // clients.matchAll().then(clients => {
+//     //     clients.forEach(client => {
+//     //         client.postMessage('refresh');
+//     //     });
+//     // });
+// });
 
 // self.addEventListener('offline', () => {
 //     console.log('offline')
