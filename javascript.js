@@ -1,22 +1,7 @@
-const version = '2.0.06';
+const version = '2.0.07';
 console.log('script version:', version);
 console.log('Initial online status:',navigator.onLine);
-(async () => {
-importScripts('https://storage.googleapis.com/workbox-cdn/releases/6.5.4/workbox-window.prod.v6.5.4.js');
 
-const registration = await workbox.core.clientsClaim();
-const clientsClaim = await registration.waitUntil(
-    self.clients.claim()
-);
-self.addEventListener('online', () => {
-    console.log('online')
-    clients.matchAll().then(clients => {
-        clients.forEach(client => {
-            client.postMessage('refresh');
-        });
-    });
-});
-})();
 
 function sendPostRequest(url, data) {
     return fetch(url, {
@@ -141,4 +126,3 @@ self.addEventListener('offline', () => {
         console.error(`Wake Lock request failed: ${err.name}, ${err.message}`);
       }
   }
-
