@@ -8,7 +8,7 @@ self.addEventListener('install', (event) => {
                 '/javascript.js',
                 '/Stylesheet.css'
             ]);
-        });
+        })
     );
 });
 
