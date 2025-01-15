@@ -1,6 +1,12 @@
-const version = '2.0.04';
+const version = '2.0.05';
 console.log('script version:', version);
 console.log('Initial online status:',navigator.onLine);
+importScripts('https://storage.googleapis.com/workbox-cdn/releases/6.5.4/workbox-window.prod.v6.5.4.js');
+
+const registration = await workbox.core.clientsClaim();
+const clientsClaim = await registration.waitUntil(
+    self.clients.claim()
+);
 function sendPostRequest(url, data) {
     return fetch(url, {
       method: 'POST',
