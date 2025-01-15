@@ -5,7 +5,6 @@ self.addEventListener('install', (event) => {
             return cache.addAll([
                 '/signage/',
                 'index.html',
-                'javascript.js',
                 'Stylesheet.css'
             ]);
         })
