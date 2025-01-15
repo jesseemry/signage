@@ -1,4 +1,4 @@
-const version = '2.0.07';
+const version = '2.0.08';
 console.log('script version:', version);
 console.log('Initial online status:',navigator.onLine);
 
@@ -85,6 +85,17 @@ function sendPostRequest(url, data) {
 self.addEventListener('offline', () => {
     console.log('offline')
 });
+
+self.addEventListener('online', () => {
+  console.log('online')
+  loadContent()
+  // clients.matchAll().then(clients => {
+  //     clients.forEach(client => {
+  //         client.postMessage('refresh');
+  //     });
+  // });
+});
+
   navigator.serviceWorker.addEventListener('message', event => {
     console.log('Received a message from the service worker:', event.data);
     if (event.data === 'refresh') {
