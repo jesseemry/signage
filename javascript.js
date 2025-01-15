@@ -22,9 +22,8 @@ function sendPostRequest(url, data) {
       console.error('There has been a problem with your fetch operation:', error);
       return Promise.reject(error); 
     });
-  }
-     
- 
+  };
+
  function loadContent(){
     // swapContent(['trying'])
     const url = 'https://script.google.com/macros/s/AKfycbxzViSw7NmByiSM2qfXwtn75-ucYqxTKzkMZloDAccae5TtjmiTzi3EwOdUFYNd4Am8Qw/exec';
@@ -59,6 +58,7 @@ function sendPostRequest(url, data) {
       })
       .catch(error => {
         console.error('Error sending POST request:', error);
+        console.log(responseData);
       });
 
     };
@@ -76,6 +76,14 @@ function sendPostRequest(url, data) {
 
     }
   noSleep()
+
+  navigator.serviceWorker.addEventListener('message', event => {
+    console.log('Received a message from the service worker:', event.data);
+    if (event.data === 'refresh') {
+      location.reload();
+    }
+  });
+
   loadContent()
 
   function swapContent(content){
