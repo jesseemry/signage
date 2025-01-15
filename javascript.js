@@ -1,12 +1,23 @@
-const version = '2.0.05';
+const version = '2.0.06';
 console.log('script version:', version);
 console.log('Initial online status:',navigator.onLine);
+(async () => {
 importScripts('https://storage.googleapis.com/workbox-cdn/releases/6.5.4/workbox-window.prod.v6.5.4.js');
 
 const registration = await workbox.core.clientsClaim();
 const clientsClaim = await registration.waitUntil(
     self.clients.claim()
 );
+self.addEventListener('online', () => {
+    console.log('online')
+    clients.matchAll().then(clients => {
+        clients.forEach(client => {
+            client.postMessage('refresh');
+        });
+    });
+});
+})();
+
 function sendPostRequest(url, data) {
     return fetch(url, {
       method: 'POST',
@@ -84,14 +95,7 @@ function sendPostRequest(url, data) {
 
     }
   noSleep()
-  self.addEventListener('online', () => {
-    console.log('online')
-    clients.matchAll().then(clients => {
-        clients.forEach(client => {
-            client.postMessage('refresh');
-        });
-    });
-});
+
 
 self.addEventListener('offline', () => {
     console.log('offline')
