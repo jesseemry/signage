@@ -6,6 +6,19 @@
     <title>Jesse's Sign App</title>
     <link rel="stylesheet" href="Stylesheet.css">
     <link rel="manifest" href="manifest.json">
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('sw.js', { scope: '/' })
+                    .then((reg) => {
+                        console.log('Service worker registered.', reg);
+                    })
+                    .catch((err) => {
+                        console.log('Service worker registration failed:', err);
+                    });
+            });
+        }
+    </script>
     <base target="_top">
 </head>
 <body style="margin:0;padding:0">
