@@ -2,6 +2,8 @@
     "manifest_version": 3,
     "name": "JGE Signage",
     "version": "1.0",
+    "display": "fullscreen",
+    "start_url": "https://jesseemry.github.io/signage",
     "permissions": [
     "chrome_management"
 ]
