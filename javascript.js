@@ -1,4 +1,5 @@
-
+const version = '2.0';
+console.log('script version:', version);
 function sendPostRequest(url, data) {
     return fetch(url, {
       method: 'POST',
