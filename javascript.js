@@ -1,5 +1,6 @@
-const version = '2.0.2';
+const version = '2.0.03';
 console.log('script version:', version);
+console.log('Initial online status:',navigator.onLine);
 function sendPostRequest(url, data) {
     return fetch(url, {
       method: 'POST',
