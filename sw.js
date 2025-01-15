@@ -11,6 +11,23 @@ self.addEventListener('install', (event) => {
     );
 });
 
+(async () => {
+    importScripts('https://storage.googleapis.com/workbox-cdn/releases/6.5.4/workbox-window.prod.v6.5.4.js');
+    
+    const registration = await workbox.core.clientsClaim();
+    const clientsClaim = await registration.waitUntil(
+        self.clients.claim()
+    );
+    self.addEventListener('online', () => {
+        console.log('online')
+        clients.matchAll().then(clients => {
+            clients.forEach(client => {
+                client.postMessage('refresh');
+            });
+        });
+    });
+    })();
+
 // self.addEventListener('online', () => {
 //     console.log('online')
 //     clients.matchAll().then(clients => {
