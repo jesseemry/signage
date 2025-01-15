@@ -1,4 +1,4 @@
-const version = '2.0.1';
+const version = '2.0.2';
 console.log('script version:', version);
 function sendPostRequest(url, data) {
     return fetch(url, {
