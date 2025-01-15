@@ -13,10 +13,14 @@ self.addEventListener('install', (event) => {
 });
 
 self.addEventListener('online', () => {
-    console.log('online');
+    console.log('online')
     clients.matchAll().then(clients => {
         clients.forEach(client => {
             client.postMessage('refresh');
         });
     });
+});
+
+self.addEventListener('offline', () => {
+    console.log('offline')
 });
