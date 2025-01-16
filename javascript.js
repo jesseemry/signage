@@ -1,4 +1,4 @@
-const version = '2.0.11';
+const version = '2.0.12';
 console.log('script version:', version);
 console.log('Initial online status:', navigator.onLine);
 
@@ -49,6 +49,8 @@ function loadContent() {
 
   if (hours != null){
     schedulePageReload(hours, minutes);
+  } else {
+    schedulePageReload(6,30);
   }
 
   const dataToSend = {
