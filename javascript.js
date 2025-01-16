@@ -30,7 +30,7 @@ function sendPostRequest(url, data) {
 
  function loadContent(){
     // swapContent(['trying'])
-    const url = 'https://script.google.com/macros/s/AKfycbxzViSw7NmByiSM2qfXwtn75-ucYqxTKzkMZloDAccae5TtjmiTzi3EwOdUFYNd4Am8Qw/exec';
+    const url = 'https://script.google.com/macros/s/AKfycbwxuMOv9IWBgkhD5TXL2UY5-1ibqJb5DBAi7KG1ZxYmjLozRxXNDRU-RR498HoxHgXIOw/exec';
 
     let params = getUrlParams();
     
