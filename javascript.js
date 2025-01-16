@@ -1,4 +1,4 @@
-const version = '2.0.10';
+const version = '2.0.11';
 console.log('script version:', version);
 console.log('Initial online status:', navigator.onLine);
 
@@ -147,20 +147,33 @@ async function noSleep() {
 }
 
 function schedulePageReload(hours, minutes){
+  const reloadScheduledKey = 'reloadScheduled';
+
+  //check to see if it's already scheduled
+  if (localStorage.getItem(reloadScheduledKey)) {
+    console.log('Reload already scheduled.');
+    return;
+  }
+
   const now = new Date();
   let targetTime = new Date();
   targetTime.setHours(hours);
   targetTime.setMinutes(minutes);
   targetTime.setSeconds(0);
-
+  console.log('setting reload for: ',targetTime);
   // set time forward if it's already passed
   if (now > targetTime){
     targetTime.setDate(targetTime.getDate() + 1);
+    console.log('moving reload forward a day');
   }
   const delay = targetTime - now;
+  //schedule the reload
 
   setTimeout(() => {
     window.location.reload(true);
+    localStorage.removeItem(reloadScheduledKey);
   }, delay);
+
+  localStorage.setItem(reloadScheduledKey, 'true');
 
 }
