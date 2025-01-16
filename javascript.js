@@ -1,4 +1,4 @@
-const version = '2.0.08';
+const version = '2.0.09';
 console.log('script version:', version);
 console.log('Initial online status:',navigator.onLine);
 
